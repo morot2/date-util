@@ -34,6 +34,12 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+tasks.jar {
+	enabled = true
+	// Remove `plain` postfix from jar file name
+	archiveClassifier.set("")
+}
+
 val sourcesJar by tasks.registering(Jar::class) {
 	classifier = "sources"
 	from(sourceSets.main.get().allSource)
